@@ -39,7 +39,7 @@ query = """ WITH time AS
 transactions_per_month = bitcoin_blockchain.query_to_pandas_safe(query, max_gb_scanned=21)
 #___________________________________________________________________________________________
 # query to find how many Bitcoin transactions were made each day in 2017
-bitcoin_each_day_query = """ WHIT dat_to_day as 
+bitcoin_each_day_query = """ WITH dat_to_day as 
                                         (SELECT TIMESTAMP_MILLIS(timestamp) AS trans_time,
                                         transaction_id)
                                         FROM `bigquery-public-data.bitcoin_blockchain.transactions`)
